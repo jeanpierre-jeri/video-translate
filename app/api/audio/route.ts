@@ -1,8 +1,6 @@
 import { openai } from '@/app/lib/openai'
 import { NextRequest, NextResponse } from 'next/server'
 
-export const maxDuration = 60
-
 export async function POST(req: NextRequest) {
   const { text } = (await req.json()) as { text?: string }
 
