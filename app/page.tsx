@@ -152,7 +152,7 @@ export default function Chat() {
 
     setTimeout(() => {
       document.body.removeChild(link)
-    }, 30000)
+    }, 25000)
   }
 
   useEffect(() => {
