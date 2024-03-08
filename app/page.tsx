@@ -123,7 +123,6 @@ export default function Chat() {
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
-    URL.revokeObjectURL(url)
   }
 
   useEffect(() => {
