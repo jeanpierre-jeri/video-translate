@@ -29,6 +29,7 @@ export default function Chat() {
   })
 
   const inputFile = useRef<HTMLInputElement>(null)
+  const messageInput = useRef<HTMLInputElement>(null)
   const [audioFile, setAudioFile] = useState<File>()
   const [loading, setLoading] = useState({
     status: false,
@@ -233,6 +234,7 @@ export default function Chat() {
       <form
         onSubmit={(e) => {
           if (!loading.status) {
+            messageInput.current?.blur()
             handleSubmit(e)
           }
         }}
@@ -274,7 +276,8 @@ export default function Chat() {
         <input
           className='w-full p-2 border border-gray-300 rounded shadow-xl inline-block'
           value={input}
-          placeholder='Say something...'
+          placeholder='Di algo...'
+          ref={messageInput}
           onChange={handleInputChange}
         />
         <button
