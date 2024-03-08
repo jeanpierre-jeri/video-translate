@@ -16,11 +16,10 @@ export async function POST(req: NextRequest) {
     voice: 'echo'
   })
 
-  const blob = await mp3.blob()
+  const arrayBuffer = await mp3.arrayBuffer()
+  const buffer = Buffer.from(arrayBuffer)
 
-  return new Response(blob, {
-    headers: {
-      'Content-Type': 'audio/mpeg'
-    }
-  })
+  const base64 = buffer.toString('base64')
+
+  return NextResponse.json({ base64 })
 }

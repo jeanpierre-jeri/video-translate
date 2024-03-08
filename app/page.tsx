@@ -122,7 +122,10 @@ export default function Chat() {
       body: JSON.stringify({ text: lastMessage })
     })
 
-    const blob = await response.blob()
+    const { base64 } = await response.json()
+
+    const responseBlob = await fetch(`data:audio/mpeg;base64,${base64}`)
+    const blob = await responseBlob.blob()
 
     setLoading({
       status: false,
