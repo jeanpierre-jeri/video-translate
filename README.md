@@ -1,42 +1,28 @@
-# Vercel AI SDK, Next.js, and OpenAI Chat Example
+# Video Translate
 
-This example shows how to use the [Vercel AI SDK](https://sdk.vercel.ai/docs) with [Next.js](https://nextjs.org/) and [OpenAI](https://openai.com) to create a ChatGPT-like AI-powered streaming chat bot.
+This project, named "video-translate", is a translation application designed for video content. It leverages the power of artificial intelligence (AI) and the OpenAI API to provide accurate translations.
 
-## Deploy your own
+## Scripts
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=ai-sdk-example):
+Here are some scripts you can run:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fai%2Ftree%2Fmain%2Fexamples%2Fnext-openai&env=OPENAI_API_KEY&envDescription=OpenAI%20API%20Key&envLink=https%3A%2F%2Fplatform.openai.com%2Faccount%2Fapi-keys&project-name=vercel-ai-chat-openai&repository-name=vercel-ai-chat-openai)
+- `dev`: Runs the app in the development mode. Use `npm run dev` to execute.
+- `build`: Builds the app for production. Use `npm run build` to execute.
+- `start`: Runs the app in the production mode. Use `npm run start` to execute.
+- `lint`: Lints the code. Use `npm run lint` to execute.
 
-## How to use
+## Installation
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+To install the project, follow these steps:
 
-```bash
-npx create-next-app --example https://github.com/vercel/ai/tree/main/examples/next-openai next-openai-app
-```
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Run `pnpm install` to install the dependencies.
 
-```bash
-yarn create next-app --example https://github.com/vercel/ai/tree/main/examples/next-openai next-openai-app
-```
+## Usage
 
-```bash
-pnpm create next-app --example https://github.com/vercel/ai/tree/main/examples/next-openai next-openai-app
-```
+To use the application:
 
-To run the example locally you need to:
-
-1. Sign up at [OpenAI's Developer Platform](https://platform.openai.com/signup).
-2. Go to [OpenAI's dashboard](https://platform.openai.com/account/api-keys) and create an API KEY.
-3. Set the required OpenAI environment variable as the token value as shown [the example env file](./.env.local.example) but in a new file called `.env.local`
-4. `pnpm install` to install the required dependencies.
-5. `pnpm dev` to launch the development server.
-
-## Learn More
-
-To learn more about OpenAI, Next.js, and the Vercel AI SDK take a look at the following resources:
-
-- [Vercel AI SDK docs](https://sdk.vercel.ai/docs)
-- [Vercel AI Playground](https://play.vercel.ai)
-- [OpenAI Documentation](https://platform.openai.com/docs) - learn about OpenAI features and API.
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- In development mode, run `pnpm run dev`.
+- To build the application for production, run `pnpm run build`.
+- To run the production build, use `pnpm run start`.
