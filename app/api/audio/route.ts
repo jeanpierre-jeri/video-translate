@@ -1,6 +1,8 @@
 import { openai } from '@/app/lib/openai'
 import { NextRequest, NextResponse } from 'next/server'
 
+export const runtime = 'edge'
+
 export async function POST(req: NextRequest) {
   const { text } = (await req.json()) as { text?: string }
 
@@ -14,9 +16,9 @@ export async function POST(req: NextRequest) {
     voice: 'echo'
   })
 
-  const buffer = Buffer.from(await mp3.arrayBuffer())
+  const blob = await mp3.blob()
 
-  return new Response(buffer, {
+  return new Response(blob, {
     headers: {
       'Content-Type': 'audio/mpeg'
     }
