@@ -4,8 +4,11 @@ import type { Message } from 'ai'
 import { useChat } from 'ai/react'
 import { useEffect, useRef, useState } from 'react'
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000'
+
 export default function Chat() {
   const { messages, input, handleInputChange, handleSubmit, setMessages } = useChat({
+    api: `${apiUrl}/api/chat`,
     onFinish: (message) => {
       const { content, role, id, createdAt } = message
       const initialMessages = localStorage.getItem('initialMessages')
@@ -56,7 +59,7 @@ export default function Chat() {
       status: true,
       type: 'file'
     })
-    const response = await fetch('/api/translation', {
+    const response = await fetch(`${apiUrl}/api/translation`, {
       method: 'POST',
       body: formData
     })
@@ -114,7 +117,7 @@ export default function Chat() {
       type: 'audio'
     })
 
-    const response = await fetch('/api/audio', {
+    const response = await fetch(`${apiUrl}/api/audio`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -122,10 +125,16 @@ export default function Chat() {
       body: JSON.stringify({ text: lastMessage })
     })
 
-    const { base64 } = await response.json()
+    if (!response.ok) {
+      setLoading({
+        status: false,
+        type: ''
+      })
+      alert('Error al generar el audio')
+      return
+    }
 
-    const responseBlob = await fetch(`data:audio/mpeg;base64,${base64}`)
-    const blob = await responseBlob.blob()
+    const blob = await response.blob()
 
     setLoading({
       status: false,
